@@ -69,11 +69,11 @@ func New(req *csr.CertificateRequest) (cert, csrPEM, key []byte, err error) {
 		} else {
 			policy.Default.CAConstraint.MaxPathLenZero = req.CA.PathLenZero
 		}
-		
+
 		if len(req.CA.Usage) > 0 {
 			policy.Default.Usage = req.CA.Usage
 		}
-		
+
 		log.Infof("req.CA.Usage: %v", req.CA.Usage)
 		log.Infof("policy.Default.Usage: %v", policy.Default.Usage)
 	}

@@ -45,7 +45,7 @@ func genkeyMain(args []string, c cli.Config) (err error) {
 		return
 	}
 
-	if c.IsCA {	
+	if c.IsCA {
 		var key, csrPEM, cert []byte
 		cert, csrPEM, key, err = initca.New(&req)
 		if err != nil {
