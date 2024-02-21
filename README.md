@@ -1,5 +1,46 @@
 # CFSSL
 
+This fork adds support for overriding the default "usage" extensions on the root CA certificate.
+To add an override, add a "usage" list in the root's json configuration file:
+
+```json
+{
+	"CN": "ABC Corp Root CA",
+	"SerialNumber":"3",
+	"key": {
+		"algo": "ecdsa",
+		"size": 521
+	},
+	"usage": [
+		"signing",
+		"key encipherment",
+		"server auth",
+		"client auth",
+		"cert sign",
+		"crl sign",
+		"s/mime",
+		"code signing",
+		"any"
+	],
+	"CA": {
+		"expiry": "87660h",
+		"pathlen": 3
+	},
+	"names": [
+		{
+			"C": "TW",
+			"ST": "台北市 Taipei City",
+			"L": "內湖區 Neihu Dist.",
+			"O": "ABC Corp",
+			"OU": "CA Control",
+			"E": "control@abccorp.com.tw"
+		}
+	]
+}
+```
+
+---
+
 [![Build Status](https://travis-ci.org/cloudflare/cfssl.svg?branch=master)](https://travis-ci.org/cloudflare/cfssl)
 [![Coverage Status](http://codecov.io/github/cloudflare/cfssl/coverage.svg?branch=master)](http://codecov.io/github/cloudflare/cfssl?branch=master)
 [![GoDoc](https://godoc.org/github.com/cloudflare/cfssl?status.svg)](https://godoc.org/github.com/cloudflare/cfssl)
