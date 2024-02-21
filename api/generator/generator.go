@@ -34,8 +34,8 @@ specifically, section 10.2.3 ("Information Requirements").`
 
 // Sum contains digests for a certificate or certificate request.
 type Sum struct {
-	MD5  string `json:"md5"`
-	SHA1 string `json:"sha-1"`
+	MD5    string `json:"md5"`
+	SHA1   string `json:"sha-1"`
 	SHA256 string `json:"sha-256"`
 }
 

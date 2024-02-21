@@ -138,11 +138,10 @@ func (kr *KeyRequest) SigAlgo() x509.SignatureAlgorithm {
 
 // CAConfig is a section used in the requests initialising a new CA.
 type CAConfig struct {
-	PathLength  int      `json:"pathlen" yaml:"pathlen"`
-	PathLenZero bool     `json:"pathlenzero" yaml:"pathlenzero"`
-	Expiry      string   `json:"expiry" yaml:"expiry"`
-	Backdate    string   `json:"backdate" yaml:"backdate"`
-	Usage       []string `json:"usage" yaml:"usage"`
+	PathLength  int    `json:"pathlen" yaml:"pathlen"`
+	PathLenZero bool   `json:"pathlenzero" yaml:"pathlenzero"`
+	Expiry      string `json:"expiry" yaml:"expiry"`
+	Backdate    string `json:"backdate" yaml:"backdate"`
 }
 
 // A CertificateRequest encapsulates the API interface to the
@@ -152,6 +151,7 @@ type CertificateRequest struct {
 	Names             []Name           `json:"names" yaml:"names"`
 	Hosts             []string         `json:"hosts" yaml:"hosts"`
 	KeyRequest        *KeyRequest      `json:"key,omitempty" yaml:"key,omitempty"`
+	Usage             []string         `json:"usage" yaml:"usage"`
 	CA                *CAConfig        `json:"ca,omitempty" yaml:"ca,omitempty"`
 	SerialNumber      string           `json:"serialnumber,omitempty" yaml:"serialnumber,omitempty"`
 	DelegationEnabled bool             `json:"delegation_enabled,omitempty" yaml:"delegation_enabled,omitempty"`
